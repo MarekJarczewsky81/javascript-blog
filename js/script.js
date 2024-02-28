@@ -1,4 +1,6 @@
 "use strict";
+
+
 function titleClickHandler(event) {
   event.preventDefault();
   const clickedElement = this;
@@ -19,7 +21,8 @@ function titleClickHandler(event) {
 
   // Usuń klase aktywną ze wszystkich artykułów
   /* [DONE] remove class 'active' from all articles */
-  const activeArticles = document.querySelectorAll(".post");
+  const activeArticles = document.querySelectorAll(".posts article.active");
+  console.log("activeArticles:", activeArticles);
   for (let activeArticle of activeArticles) {
     activeArticle.classList.remove("active");
   }
@@ -31,8 +34,8 @@ function titleClickHandler(event) {
 
   // Znajdź poprawny artykuł uzywając selektor, który wskazuje na wartość atrybutu 'href
   /* find the correct article using the selector (value of 'href' attribute) */
-  const targedArticle = document.querySelector(articleSelector);
-  console.log("targedArticle:", targedArticle);
+  const targetArticle = document.querySelector(articleSelector);
+  console.log("targetArticle:", targetArticle);
 
   // Dodaj klase 'active' do poprawnego artykułu
   /* add class 'active' to the correct article */
@@ -41,7 +44,8 @@ function titleClickHandler(event) {
 
 
 
-  const links = document.querySelectorAll(".titles a");
-  for (let link of links) {
+const links = document.querySelectorAll(".titles a");
+
+for (let link of links) {
     link.addEventListener("click", titleClickHandler);
   }
