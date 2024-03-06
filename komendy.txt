@@ -1,0 +1,7 @@
+npm install --save-dev stylelint stylelint-scss stylelint-config-standard-scss      // stylelint, stylelint-scss i stylelint-config-standard-scss
+
+
+npm run test:scss
+
+
+npm install --save-dev eslint
