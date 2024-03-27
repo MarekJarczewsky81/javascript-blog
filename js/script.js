@@ -1,34 +1,30 @@
 'use strict';
 
 /* HANDLEBARS */
+
+
 const templates = {
   articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
   tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
-  tagCloudLink: Handlebars.compile(document.querySelector('#template-tagCloud-link').innerHTML),
   authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
-  authorCloudLink: Handlebars.compile(document.querySelector('#template-authorCloud-link').innerHTML),
+  tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
+  authorListLink : Handlebars.compile(document.querySelector('#template-author-list-link').innerHTML),
 };
 
 /* GLOBAL */
-const opts = {
+const opt = {
   articleSelector: '.post', //# article list
   titleSelector: '.post-title', //# article title
   titleListSelector: '.titles', //# link list
   articleTagsSelector: '.post-tags .list', //# article tag list
   articleAuthorSelector: '.post-author',  //# author selector
   tagsListSelector: '.tags.list', //# right sidebar tag links
-  cloudClassPrefix: 'cloud-size-', //# class names for tag cloud
+  cloudClassPrefix: 'tag-size-', //# class names for tag cloud
   cloudClassCount: 5, //# num of classes for tag cloud sizing
-  authorsListSelector: '.authors', //# right sidebar author links
+  authorsListSelector: '.authors.list', //# right sidebar author links
 };
 
-const buttonAllPosts = document.getElementById('btn-allposts');
-const showAllPostLinks = function (event) {
-  event.preventDefault();
-  console.log('Show all posts!');
-  generateTitleLinks();
-};
-buttonAllPosts.addEventListener('click', showAllPostLinks);
+
 
 function titleClickHandler(event) {
   event.preventDefault();
@@ -71,13 +67,13 @@ function titleClickHandler(event) {
 
 function generateTitleLinks(customSelector = '') {
 
-  const titleList = document.querySelector(opts.titleListSelector);
+  const titleList = document.querySelector(opt.titleListSelector);
   /* remove contents of titleList */
 
   // Wyczyść listę przed generowaniem nowych linków
   titleList.innerHTML = '';
 
-  const articles = document.querySelectorAll(opts.articleSelector + customSelector);
+  const articles = document.querySelectorAll(opt.articleSelector + customSelector);
 
   // let html = '';
   /* for each article */
@@ -85,7 +81,7 @@ function generateTitleLinks(customSelector = '') {
   /* get the article id */
     const articleId = article.getAttribute('id');
     /* find the title element */
-    const articleTitle = article.querySelector(opts.titleSelector).innerHTML;
+    const articleTitle = article.querySelector(opt.titleSelector).innerHTML;
     /* get the title from the title element */
     // const linkHTML =
     //     '<li><a href="#' +
@@ -114,31 +110,24 @@ function generateTitleLinks(customSelector = '') {
 
 generateTitleLinks();
 
-const calculateTagsParams = function (tags) {
-  let tagInstances = [];
+function calculateTagsParams(tags) {
+  //defining min and max of our parameters for tags
+  const params = { min: '99999', max: '0' };
   for (let tag in tags) {
-    //// console.log(tag + ' used ' + tags[tag] + ' times');
-    tagInstances.push(tags[tag]);
+    params.max = Math.max(tags[tag], params.max);
+    params.min = Math.min(tags[tag], params.min);
   }
-  //// console.log('tagInstances[] : ', tagInstances);
-  //^ Return these numbers as an object containing 2 keys: max and min
-  const params = {
-    min: Math.min.apply(null, tagInstances),
-    max: Math.max.apply(null, tagInstances),
-  };
-
   return params;
-};
+}
 
-const calculateCloudClass = function (count, params) {
-  //// console.log('> count: ', count); console.log('> params: ', params);
+
+function calculateTagClass(count, params) {
   const normalizedCount = count - params.min;
   const normalizedMax = params.max - params.min;
   const percentage = normalizedCount / normalizedMax;
-  const classNumber = Math.floor(percentage * (opts.cloudClassCount - 1) + 1);
-  const className = opts.cloudClassPrefix + classNumber; //>console.log(className);
-  return className;
-};
+  const classNumber = Math.floor(percentage * (opt.cloudClassCount - 1) + 1);
+  return classNumber;
+}
 
 const generateTags = function () {
   /* [NEW] create a new variable allTags with an empty array */
@@ -147,12 +136,12 @@ const generateTags = function () {
   // CREATEan OBJECT to store tag counts
   let allTags = {};
   /* find all articles */
-  const articles = document.querySelectorAll(opts.articleSelector);
+  const articles = document.querySelectorAll(opt.articleSelector);
   // console.log('All articles:', articles);
   /* START LOOP: for every article: */
   for (let article of articles) {
     /* find tags wrapper */
-    const articleTagList = article.querySelectorAll(opts.articleTagsSelector);
+    const articleTagList = article.querySelectorAll(opt.articleTagsSelector);
 
     /* make html variable with empty string */
     let html = '';
@@ -193,7 +182,7 @@ const generateTags = function () {
   }
   /* END LOOP: for every article: */
   /* [NEW] find list of tags in right column */
-  const tagList = document.querySelector(opts.tagsListSelector);
+  const tagList = document.querySelector(opt.tagsListSelector);
   const tagsParams = calculateTagsParams(allTags);
   // console.log("tagsParams: ", tagsParams);
   /* [NEW] add html from allTags to tagList */
@@ -212,7 +201,7 @@ const generateTags = function () {
     allTagsData.tags.push({
       tag: tag,
       count: allTags[tag],
-      className: calculateCloudClass(allTags[tag], tagsParams),
+      className: calculateTagClass(allTags[tag], tagsParams),
     });
   }
 
@@ -289,11 +278,11 @@ const calculateAuthorParams = function (authors) {
 
 const generateAuthors = function () {
   let allAuthors = {};
-  const articles = document.querySelectorAll(opts.articleSelector);
+  const articles = document.querySelectorAll(opt.articleSelector);
 
   /* START LOOP: for every article: */
   for (let article of articles) {
-    const articleAuthorWrapper = article.querySelectorAll(opts.articleAuthorSelector);
+    const articleAuthorWrapper = article.querySelectorAll(opt.articleAuthorSelector);
     let html = '';
 
     const articleAuthor = article.getAttribute('data-author');
@@ -332,7 +321,7 @@ const generateAuthors = function () {
 
     /* [[[[[ AUTHOR CLOUD ]]]] */
     //^ find list of authors in right column
-    const authorList = document.querySelector(opts.authorsListSelector);
+    const authorList = document.querySelector(opt.authorsListSelector);
     const authorParams = calculateAuthorParams(allAuthors);
     //> console.log('authorParams: ', authorParams);
 
@@ -349,11 +338,11 @@ const generateAuthors = function () {
       allAuthorsData.authors.push({
         author: author,
         count: allAuthors[author],
-        className: calculateCloudClass(allAuthors[author], authorParams),
+        className: calculateTagClass(allAuthors[author], authorParams),
       });
     }
     //* [HANLEBARS]
-    authorList.innerHTML = templates.authorCloudLink(allAuthorsData);
+    authorList.innerHTML = templates.authorListLink(allAuthorsData);
     // authorList.innerHTML = html;
     // console.log("authorList:", authorList);
   }

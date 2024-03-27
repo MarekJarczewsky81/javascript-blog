@@ -1,28 +1,33 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>JavaScript Blog</title>
-<link rel="stylesheet" href="css/style.css">
+	<meta charset="UTF-8">
+	<title>kodillaJavascriptBlog</title>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="blog">
-      <div class="container">
-        <h1 class="logo">JS Blog</h1>
-        <main class="wrapper">
-          <aside class="sidebar">
-            <h2 class="section-title">All posts</h2>
-            <ul class="list titles">
-              <script id="template-title-links" type="text/x-handlebars-template">
-                <li><a href="#{{ articleId }}"><span>{{ articleTitle }}</span></a></li>
-              </script>
-              </ul><br>
-              <span id="btn-allposts"><a href="#">Show All</a></span>
+        <div class="container">
+          <h1 class="logo">my blog</h1>
+          <main class="wrapper">
+            <aside class="sidebar">
+              <h2 class="section-title">All posts</h2>
+              <ul class="list titles">
+                <!--USNIETE MODUL 6.4
+                <li><a href="#article-1" class="active"><span>Article 1</span></a></li>
+                <li><a href="#article-2"><span>Article 2</span></a></li>
+                <li><a href="#article-3"><span>Article 3</span></a></li>
+                <li><a href="#article-4"><span>Article 4</span></a></li>
+                <li><a href="#article-5"><span>Article 5</span></a></li>
+                <li><a href="#article-6"><span>Article 6</span></a></li>
+                <li><a href="#article-7"><span>Article 7</span></a></li>
+                <li><a href="#article-8"><span>Article 8</span></a></li>
+                <li><a href="#article-9"><span>Article 9</span></a></li>
+                <li><a href="#article-10"><span>Article 10</span></a></li>-->
+              </ul>
             </aside>
             <section class="posts">
-              <article class="post active" id="article-1" data-tags="hardware design tutorials" data-author="Marion Berry">
+              <article class="post active" id="article-1" data-tags="alfa bravo charlie delta" data-author="Marion Berry">
                 <h3 class="post-title">Article 1</h3>
                 <p class="post-author"></p>
                 <div class="post-content">
@@ -35,10 +40,13 @@
                 <div class="post-tags">
                   <p><strong>Tags:</strong></p>
                   <ul class="list list-horizontal">
+                    <!--USUNIETE MODUL 7.2
+                    <li><a href="#">design</a></li>
+                    <li><a href="#">tutorials</a></li>-->
                   </ul>
                 </div>
               </article>
-              <article class="post" id="article-2" data-tags="hardware news code" data-author="Theo Tabby">
+              <article class="post" id="article-2" data-tags="bravo charlie delta" data-author="Theo Tabby">
                 <h3 class="post-title">Article 2</h3>
                 <p class="post-author"></p>
                 <div class="post-content">
@@ -51,12 +59,15 @@
                 <div class="post-tags">
                   <p><strong>Tags:</strong></p>
                   <ul class="list list-horizontal">
+                    <!--USUNIETE MODUL 7.2
+                    <li><a href="#">news</a></li>
+                    <li><a href="#">code</a></li>-->
                   </ul>
                 </div>
               </article>
-              <article class="post" id="article-3" data-tags="hardware news reviews design" data-author="George Tuxedo">
+              <article class="post" id="article-3" data-tags="charlie delta zulu" data-author="George Tuxedo">
                 <h3 class="post-title">Article 3</h3>
-                <p class="post-author"></p>
+                <p class="post-author">by Marion</p>
                 <div class="post-content">
                   <p>Mauris vel pellentesque turpis, ac sodales nisl. Quisque iaculis mi velit, ut convallis tellus accumsan a. Quisque iaculis, nisi et dignissim tincidunt, nisl eros euismod nulla, finibus laoreet erat enim posuere elit.</p>
 
@@ -66,10 +77,14 @@
                 <div class="post-tags">
                   <p><strong>Tags:</strong></p>
                   <ul class="list list-horizontal">
+                    <!--USUNIETE MODUL 7.2
+                    <li><a href="#">news</a></li>
+                    <li><a href="#">reviews</a></li>
+                    <li><a href="#">design</a></li>-->
                   </ul>
                 </div>
               </article>
-              <article class="post" id="article-4" data-tags="framework tutorials code design" data-author="Kitty Toebean">
+              <article class="post" id="article-4" data-tags="delta" data-author="Kitty Toebean">
                 <h3 class="post-title">Article 4</h3>
                 <p class="post-author"></p>
                 <div class="post-content">
@@ -82,10 +97,14 @@
                 <div class="post-tags">
                   <p><strong>Tags:</strong></p>
                   <ul class="list list-horizontal">
+                    <!--USUNIETE MODUL 7.2
+                    <li><a href="#">tutorials</a></li>
+                    <li><a href="#">code</a></li>
+                    <li><a href="#">design</a></li>-->
                   </ul>
                 </div>
               </article>
-              <article class="post" id="article-5" data-tags="design reviews" data-author="Marion Berry">
+              <article class="post" id="article-5" data-tags="alfa bravo charlie" data-author="Marion Berry">
                 <h3 class="post-title">Article 5</h3>
                 <p class="post-author"></p>
                 <div class="post-content">
@@ -98,10 +117,13 @@
                 <div class="post-tags">
                   <p><strong>Tags:</strong></p>
                   <ul class="list list-horizontal">
+                    <!--USUNIETE MODUL 7.2
+                    <li><a href="#">design</a></li>
+                    <li><a href="#">reviews</a></li>-->
                   </ul>
                 </div>
               </article>
-              <article class="post" id="article-6" data-tags="code reviews models" data-author="George Tuxedo">
+              <article class="post" id="article-6" data-tags="alfa bravo" data-author="George Tuxedo">
                 <h3 class="post-title">Article 6</h3>
                 <p class="post-author"></p>
                 <div class="post-content">
@@ -114,10 +136,13 @@
                 <div class="post-tags">
                   <p><strong>Tags:</strong></p>
                   <ul class="list list-horizontal">
+                    <!--USUNIETE MODUL 7.2
+                    <li><a href="#">reviews</a></li>
+                    <li><a href="#">code</a></li>-->
                   </ul>
                 </div>
               </article>
-              <article class="post" id="article-7" data-tags="news code models" data-author="Marion Berry">
+              <article class="post" id="article-7" data-tags="alfa" data-author="Kitty Toebean">
                 <h3 class="post-title">Article 7</h3>
                 <p class="post-author"></p>
                 <div class="post-content">
@@ -130,10 +155,13 @@
                 <div class="post-tags">
                   <p><strong>Tags:</strong></p>
                   <ul class="list list-horizontal">
+                    <!--USUNIETE MODUL 7.2
+                    <li><a href="#">code</a></li>
+                    <li><a href="#">news</a></li>-->
                   </ul>
                 </div>
               </article>
-              <article class="post" id="article-8" data-tags="news design tutorials" data-author="Theo Tabby">
+              <article class="post" id="article-8" data-tags="bravo delta" data-author="Theo Tabby">
                 <h3 class="post-title">Article 8</h3>
                 <p class="post-author"></p>
                 <div class="post-content">
@@ -146,10 +174,14 @@
                 <div class="post-tags">
                   <p><strong>Tags:</strong></p>
                   <ul class="list list-horizontal">
+                    <!--USUNIETE MODUL 7.2
+                    <li><a href="#">news</a></li>
+                    <li><a href="#">design</a></li>
+                    <li><a href="#">tutorials</a></li>-->
                   </ul>
                 </div>
               </article>
-              <article class="post" id="article-9" data-tags="news tutorials" data-author="Marion Berry">
+              <article class="post" id="article-9" data-tags="alfa bravo deltas" data-author="Marion Berry">
                 <h3 class="post-title">Article 9</h3>
                 <p class="post-author"></p>
                 <div class="post-content">
@@ -162,10 +194,13 @@
                 <div class="post-tags">
                   <p><strong>Tags:</strong></p>
                   <ul class="list list-horizontal">
+                    <!--USUNIETE MODUL 7.2
+                    <li><a href="#">news</a></li>
+                    <li><a href="#">tutorials</a></li>-->
                   </ul>
                 </div>
               </article>
-              <article class="post" id="article-10" data-tags="news code design reviews" data-author="George Tuxedo">
+              <article class="post" id="article-10" data-tags="bravo charlie" data-author="George Tuxedo">
                 <h3 class="post-title">Article 10</h3>
                 <p class="post-author"></p>
                 <div class="post-content">
@@ -178,6 +213,11 @@
                 <div class="post-tags">
                   <p><strong>Tags:</strong></p>
                   <ul class="list list-horizontal">
+                    <!--USUNIETE MODUL 7.2
+                    <li><a href="#">code</a></li>
+                    <li><a href="#">design</a></li>
+                    <li><a href="#">news</a></li>
+                    <li><a href="#">reviews</a></li>-->
                   </ul>
                 </div>
               </article>
@@ -185,35 +225,71 @@
             <aside class="sidebar">
               <h2 class="section-title">Tags</h2>
               <ul class="list tags">
+                <!--USUNIETE MODUL 7.3
+                <li><a href="#">design</a> <span>(6)</span></li>
+                <li><a href="#">code</a> <span>(5)</span></li>
+                <li><a href="#">tutorials</a> <span>(4)</span></li>
+                <li><a href="#">reviews</a> <span>(4)</span></li>
+                <li><a href="#">news</a> <span>(6)</span></li>-->
               </ul>
               <h2 class="section-title">Authors</h2>
               <ul class="list authors">
+                <!--USUNIETE MODUL 7.2
+                <li>
+                  <a href="#">
+                    <span class="author-name"></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="author-name">Theo Tabby</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="author-name">George Tuxedo</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="author-name">Marion Berry</span>
+                  </a>
+                </li>-->
               </ul>
             </aside>
           </main>
         </div>
       </div>
-    <!-- HANDLEBARS TEMPLATE SCRIPTS -->
+
     <script id="template-article-link" type="text/x-handlebars-template">
       <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
     </script>
+
     <script id="template-tag-link" type="text/x-handlebars-template">
-      <li><a href="#tag-{{ tag }}"><span>{{ tag }}</span></a></li>
+      <li><a href="#tag-{{ id }}"><span>{{ tag }}</span></a></li>
     </script>
+
     <script id="template-author-link" type="text/x-handlebars-template">
-      by <a href="#author-{{ name }} {{ surname }}"><span>{{ name }} {{ surname }}</span></a>
+      <li><a href="#author-{{ id }}"><span>by {{ author }}</span></a></li>
     </script>
-    <script id="template-tagCloud-link" type="text/x-handlebars-template">
+
+    <script id="template-tag-cloud-link" type="text/x-handlebars-template">
       {{#each tags}}
-        <li><a href="#tag-{{ tag }}" class="{{ className }}">{{ tag }}</a></li>
+      <li><a href="#tag-{{ tag }}" class="tag-size-{{ className }}">{{ tag }}</li>
       {{/each}}
     </script>
-    <script id="template-authorCloud-link" type="text/x-handlebars-template">
+
+    <script id="template-author-list-link" type="text/x-handlebars-template">
       {{#each authors}}
-      <li><a href="#author-{{ author }}" class="{{ className }}"><span class="author-name">{{ author }}</span></a></li>
+      <li><a href="#author-{{ author }}">{{ author }} ({{ count }})</a></li>
       {{/each}}
     </script>
+
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+    <script src="js/functions.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

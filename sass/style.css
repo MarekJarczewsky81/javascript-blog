@@ -70,6 +70,7 @@ body {
 }
 .list .active {
   font-weight: bold;
+  color: #43BFC7;
 }
 
 .list-horizontal li {
@@ -77,8 +78,50 @@ body {
 }
 
 /* Authors */
-.authors li {
-  margin-bottom: 12px;
+/* .authors {
+  li {
+    display: inline-flex;
+    flex-flow: wrap;
+    padding: 0 4px;
+    a {
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+} */
+.tags li, .authors li {
+  display: inline-flex;
+  flex-flow: wrap;
+  padding: 0 4px;
+}
+.tags li a, .authors li a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cloud-size-1 {
+  font-size: 50%;
+  color: #83a1e8;
+}
+
+.cloud-size-2 {
+  font-size: 75%;
+  color: #5880e0;
+}
+
+.cloud-size-3 {
+  font-size: 100%;
+  color: #2d5fd8;
+}
+
+.cloud-size-4 {
+  font-size: 125%;
+  color: #2554C7;
+}
+
+.cloud-size-5 {
+  font-size: 150%;
+  color: #1d429c;
 }
 
 /* Post */

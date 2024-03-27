@@ -1,9 +1,12 @@
+
 @import url('https://fonts.googleapis.com/css?family=Oswald:400,600|Sacramento|Source+Sans+Pro:300&subset=latin-ext');
 
 /* Variables */
 
 $color-light: #fff;
 $color-dark: #444;
+$color-green: #43BFC7;
+$color-blue: #2554C7;
 
 $font-logo: 'Sacramento', cursive;
 $font-header: 'Oswald', sans-serif;
@@ -34,6 +37,7 @@ body {
   text-transform: uppercase;
   font-family: $font-header;
   font-weight: 600;
+
   span {
     text-transform: none;
     font-weight: 400;
@@ -80,8 +84,10 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+
   .active {
     font-weight: bold;
+    color: $color-green;
   }
 }
 
@@ -93,16 +99,61 @@ body {
 
 /* Authors */
 
-.authors {
+/* .authors {
   li {
-    margin-bottom: 12px;
+    display: inline-flex;
+    flex-flow: wrap;
+    padding: 0 4px;
+    a {
+      text-decoration: none;
+      font-weight: bold;
+    }
   }
+} */
+
+.tags, .authors {
+  li {
+    display: inline-flex;
+    flex-flow: wrap;
+    padding: 0 4px;
+
+    a {
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+}
+
+.cloud-size-1 {
+  font-size: 50%;
+  color: lighten($color-blue, 25);
+}
+
+.cloud-size-2 {
+  font-size: 75%;
+  color: lighten($color-blue, 15);
+}
+
+.cloud-size-3 {
+  font-size: 100%;
+  color: lighten($color-blue, 5);
+}
+
+.cloud-size-4 {
+  font-size: 125%;
+  color: $color-blue;
+}
+
+.cloud-size-5 {
+  font-size: 150%;
+  color: darken($color-blue, 10);
 }
 
 /* Post */
 
 .post {
   display: none;
+
   &.active {
     display: block;
   }
@@ -114,6 +165,7 @@ body {
 
 .post-tags {
   display: flex;
+
   p {
     margin: 0 10px 0 0;
   }
