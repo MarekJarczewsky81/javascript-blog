@@ -41,5 +41,8 @@
     "stylelint": "^16.2.1",
     "stylelint-config-standard-scss": "^13.0.0",
     "stylelint-scss": "^6.1.0"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8"
   }
 }
